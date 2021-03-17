@@ -99,28 +99,28 @@ iconsAll = [
 
 const iconsContainer = document.getElementById('icons-container');
 
-assignColor(getUniqueTypes(iconsAll));
+assignColor(getUniqueTypes(iconsAll));	//	Definisce proprietà 'color' di ogni oggetto
 
+iconsAll.forEach(element => {	printIcon(element);	});	//	Stampa tutte le cards nell'html
 
-function assignColor(tipiPresenti) {
-	let colori = generateColors(tipiPresenti.length);
+function assignColor(tipiDiIcona) {
+//	Assegna una nuova proprietà 'color' ad ogni oggetto dell'array	
+//	Sulla base della proprietà 'type' (già assegnata)
+	let colori = generateColors(tipiDiIcona.length);	// = numero di tipi esistenti
 	iconsAll = iconsAll.map( (oggetto) => { 
-		oggetto.color = colori[tipiPresenti.indexOf(oggetto.type)];
-		return oggetto; 
+		oggetto.color = colori[tipiDiIcona.indexOf(oggetto.type)];
+		return oggetto;
 	  }); 
 }
 
-iconsAll.forEach(element => {	printIcon(element);	});
-
-
 function printIcon(icon) {	
-//	Stampa un determinato box-icona all'interno dell'HTML
+//	Stampa il box-icona passato come argomento all'interno dell'HTML
 	iconsContainer.innerHTML += `<li class="single-icon-outer"><i style="color: rgb(${icon.color});" class="${icon.family} ${icon.prefix}${icon.name}"></i><h3 class="margin-t-standard text-uppercase">${icon.name}</h3></li>`;	
 }
 
 function getUniqueTypes(array) {
-//	Determina i diversi tipi di elemento presenti all'interno di un array
-// 	e li restituisce come elementi di un array
+//	Restituisce un array contenente tutti i diversi tipi di elemento 
+// 	presenti nell'array passato come argomento
 	let types = [];
 	array.forEach(	(element)	=> {
 		if(!types.includes(element.type)) {
@@ -131,7 +131,8 @@ function getUniqueTypes(array) {
 }
 
 function generateColors(colors) {
-//	In base al valore passato genera tot valori RGB
+//	In base al valore passato genera tot valori RGB 
+//	e li restituisce sotto forma di array
 	var randomColors = [];
 	for(let i = 0; i < colors; i++) {
 		randomColors.push(getRGB());
@@ -140,12 +141,12 @@ function generateColors(colors) {
 }
 
 function getRGB() {
-//	Genera un valore RGB
+//	Restituisce una stringa contenente 3 valori RGB separati da ','
 	let rgbColor = [];
-	for(let j = 0; j < 3; j++) {
+	for(let i = 0; i < 3; i++) {
 		rgbColor.push(getRandom(0,255));
 	}
-	return rgbColor;
+	return rgbColor.join();
 }
 
 function getRandom(min , max) {	
