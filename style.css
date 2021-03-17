@@ -1,0 +1,59 @@
+:root {
+    --color-bg: rgb(235, 235, 235);
+}
+
+body {
+    font-size: 1.8rem;
+}
+
+.flex-wrapper.outer-wrapper {
+    flex-wrap: wrap;
+    align-content: space-between;
+}
+
+.header {
+    line-height: 8rem;
+    background-color: red;
+}
+
+.header h1 {
+    display: inline-block;
+}
+
+.header ,
+.main ,
+.footer {
+    width: 100%;
+    min-height: 8rem;
+}
+
+.inner-wrapper {
+    max-width: 1200px;
+    margin: auto;
+}
+
+ul#icons-container.flex-wrapper {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.single-icon-outer {
+    flex: 0 0 calc((100% - 5rem) / 5);
+    font-size: 6rem;
+    min-height: 10rem;
+    padding: var(--standard-spacing);
+    background-color: white;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    margin-bottom: 2.5rem;
+}
+
+.single-icon-outer h3 {
+    font-size: 2rem;
+}
+
+.footer {
+    line-height: 8rem;
+    background-color: red;
+    
+}
