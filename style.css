@@ -1,36 +1,77 @@
 :root {
     --color-bg: rgb(235, 235, 235);
+    --color-primary: rgb(139, 8, 8);
+    --color-text: #777;
 }
 
 body {
+    font-family: 'Roboto', sans-serif;
     font-size: 1.8rem;
+    letter-spacing: .15rem;
 }
+
+/* 
+######
+LAYOUT 
+######
+*/
 
 .flex-wrapper.outer-wrapper {
     flex-wrap: wrap;
     align-content: space-between;
 }
 
-.header {
-    line-height: 8rem;
-    background-color: red;
-}
-
-.header h1 {
-    display: inline-block;
-}
-
 .header ,
 .main ,
 .footer {
     width: 100%;
-    min-height: 8rem;
 }
 
 .inner-wrapper {
     max-width: 1200px;
     margin: auto;
 }
+
+/* 
+######
+HEADER 
+######
+*/
+
+.inner-header .outer-heading {
+    min-height: 10rem;
+    letter-spacing: 1rem;
+}
+
+.inner-header .outer-form {
+    min-height: 8rem;
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.inner-header .outer-form select {
+    display: block;
+    margin: var(--standard-spacing) auto;
+}
+
+@media screen and (min-width: 768px) {  /* On wider devices*/
+
+    .inner-header .outer-heading {
+        min-height: 8rem;
+    }
+
+    .inner-header .outer-form {
+        min-height: 5rem;
+    }
+
+    .inner-header .outer-form select {
+        display: initial;
+    }
+}
+
+/* 
+############
+MAIN CONTENT 
+############
+*/
 
 ul#icons-container.flex-wrapper {
     flex-wrap: wrap;
@@ -39,21 +80,39 @@ ul#icons-container.flex-wrapper {
 }
 
 .single-icon-outer {
-    flex: 0 0 calc((100% - 5rem) / 5);
-    font-size: 6rem;
+    flex: 0 0 calc((100% - 3rem) / 3);  /* on mobile */
     min-height: 10rem;
+    margin-bottom: 2.5rem;
     padding: var(--standard-spacing);
     background-color: white;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
-    margin-bottom: 2.5rem;
+}
+
+.single-icon-outer i {  /* icons */
+    font-size: 6rem;
+}
+
+@media screen and (min-width: 768px) {
+    .single-icon-outer {
+        flex: 0 0 calc((100% - 5rem) / 5);
+    }
 }
 
 .single-icon-outer h3 {
     font-size: 2rem;
 }
 
+/* 
+######
+FOOTER 
+######
+*/
+
 .footer {
+    min-height: 8rem;
     line-height: 8rem;
-    background-color: red;
-    
+}
+
+.text-bigger {
+    font-size: 2em;
 }

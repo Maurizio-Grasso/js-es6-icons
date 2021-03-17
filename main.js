@@ -98,17 +98,29 @@ iconsAll = [
 ];
 
 const iconsContainer = document.getElementById('icons-container');	//	ul contenente tutte le icone
+
 const select = document.getElementById('type-select');				//	menu a tendina
 select.onchange = function(){batchPrint(this.value)};  				//	assegna evento onchange alla select
+
+populateSelect();	//	inserisce opzioni nel menu a tendina 'select'
 
 assignColor(getUniqueTypes(iconsAll));	//	Definisce proprietà 'color' di ogni oggetto
 batchPrint('all');	//	Stampa tutte le icone
 
+function populateSelect() {
+//	In base al numero di diversi tipi di icone presenti nell'array
+//	Popola la <select> nell'HTML	
+	var types = getUniqueTypes(iconsAll);
+	select.innerHTML = `<option value="all">Mostra Tutto</option>`;
+	for(let i = 0; i < types.length; i++) {
+		select.innerHTML += `<option value="${types[i]}">Mostra "${types[i]}"</option>`;
+	}
+}
 
 function batchPrint(type) {
 //	in base valore passato come argomento, comanda la stampa di tutti
 //	gli elementi che rispondono al tipo corrispondente		
-	iconsContainer.innerHTML = '';
+	iconsContainer.innerHTML = '';	// Reset HTML
 	if(type == 'all') {
 		iconsAll.forEach( (element) => {
 			printIcon(element);
@@ -125,7 +137,6 @@ function printIcon(icon) {
 //	Stampa il box-icona passato come argomento all'interno dell'HTML
 	iconsContainer.innerHTML += `<li class="single-icon-outer"><i style="color: rgb(${icon.color});" class="${icon.family} ${icon.prefix}${icon.name}"></i><h3 class="margin-t-standard text-uppercase">${icon.name}</h3></li>`;	
 }
-
 
 function getUniqueTypes(array) {
 	//	Restituisce un array contenente tutti i diversi tipi di elemento 

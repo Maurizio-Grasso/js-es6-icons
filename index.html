@@ -3,6 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>Icons</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Font Roboto -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
 
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
@@ -15,8 +20,29 @@
 
     <div class="flex-wrapper outer-wrapper text-center">
         
-      <header class="header">
-        <div class="inner-wrapper inner-header text-uppercase text-white"><h1>Fonticons</h1></div>
+      <header class="header bg-primary">
+
+        <div class="inner-header text-white">
+
+          <div class="outer-heading inner-wrapper set-relative">
+            <h1 class="align-x-y text-uppercase">Fonticons</h1>
+          </div>
+
+          <div class="outer-form set-relative">
+
+            <form class="align-x-y text-capitalized" action="">
+              <label for="type-select">Seleziona oggetti da filtrare
+            
+                <select name="" id="type-select">
+                  <!-- Populated by JS -->
+                </select>
+            
+              </label>
+          </form>
+
+          </div>  <!--outer form END -->
+        </div>  <!-- inner header END -->
+
       </header>
 
       <main class="main">
@@ -27,23 +53,13 @@
         </div>
       </main>
 
-      <footer class="footer">
+      <footer class="footer bg-primary">
         <div class="inner-wrapper inner-footer text-white">
-          <!-- <span>Made with &hearts; in Boolean</span> -->
-          <form action="">
-            <label for="type-select">Seleziona tipo di oggetto da visualizzare
-              <select name="" id="type-select">
-                <option value="all">Mostra Tutto</option>
-                <option value="animal">Tipo animal</option>
-                <option value="vegetable">Tipo vegetable</option>
-                <option value="user">Tipo user</option>
-              </select>
-          </label>
-        </form>
+          <span>Made with <span class="text-bigger">&hearts;</span> in Boolean</span>
         </div>
       </footer>
 
-    </div>
+    </div>  <!--  Outer Wrapper END -->
 
     <script type="text/javascript" src="main.js"></script>
   </body>
